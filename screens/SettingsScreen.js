@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { View, Text, CheckBox, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Switch } from 'react-native';
 
 const SettingsScreen = () => {
   const notificationSettings = useSelector((state) => state.notificationSettings);
@@ -15,25 +15,22 @@ const SettingsScreen = () => {
 
   return (
     <View style={styles.container}>
-      <br/>
       <View style={styles.item}>
-        <CheckBox
+        <Switch
           value={notificationSettings.smsEnabled}
           onValueChange={() => handleToggleSetting('smsEnabled')}
         />
         <Text style={{color:'white'}}>SMS Notifications</Text>
       </View>
-      <br/>
       <View style={styles.item}>
-        <CheckBox
+        <Switch
           value={notificationSettings.pushEnabled}
           onValueChange={() => handleToggleSetting('pushEnabled')}
         />
         <Text style={{color:'white'}}>Push Notifications</Text>
       </View>
-      <br/>
       <View style={styles.item}>
-        <CheckBox
+        <Switch
           value={notificationSettings.emailEnabled}
           onValueChange={() => handleToggleSetting('emailEnabled')}
         />
@@ -51,7 +48,9 @@ const styles = StyleSheet.create({
   },
   item:
   {
-    alignItems:'center',
+    marginTop: 10,
+    marginBottom: 10,
+    alignItems: 'center',
   }
 });
 

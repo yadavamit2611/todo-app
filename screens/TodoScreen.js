@@ -27,20 +27,17 @@ const TodoScreen = () => {
         </Text>
     </View>
     );
-    }
+    };
 
   return (
     <View style={styles.container}>
-      <br/>
       <TextInput
         style={styles.inputstyle}
         onChangeText={(value) => setText(value)}
         value={text}
         placeholder='Enter a new task!'
       />
-      <br/>
       <Button onPress={addTodo} title="Add Todo" />
-      <br/>
       <FlatList
         data={todos}
         renderItem={({ item }) => (
@@ -65,13 +62,16 @@ const styles = StyleSheet.create({
       borderWidth: 1, width: '80%',
       alignSelf:'center',
       textAlign:'center',
-      color:'white' 
+      color:'white', 
+      marginTop:10,
+      marginBottom:10,
     },
     task: {
       backgroundColor: 'white',
       padding: 10,
       borderRadius: 10,
       marginBottom: 5,
+      marginTop: 10,
       },
   });
 
