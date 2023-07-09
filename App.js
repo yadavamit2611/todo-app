@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { StyleSheet } from 'react-native';
 
 import todoReducer from './reducers/todoReducer';
 import TodoScreen from './screens/TodoScreen';

@@ -5,6 +5,7 @@ import { View, Text, TextInput, Button, FlatList, StyleSheet } from 'react-nativ
 const TodoScreen = () => {
   const [text, setText] = useState('');
   const todos = useSelector((state) => state.todos);
+
   const dispatch = useDispatch();
 
   const addTodo = () => {
@@ -14,14 +15,14 @@ const TodoScreen = () => {
     }
   };
 
-  const toggleTodo = (id) => {
-    dispatch({ type: 'TOGGLE_TODO', payload: id });
+  const toggleTodo = (element) => {
+    dispatch({ type: 'TOGGLE_TODO', payload: element.id });
   };
 
   const Item = ({element}) => {
     return(
     <View style={styles.task}>
-      <Text onPress={() => toggleTodo(element.id)} style={{ textDecorationLine: element.completed ? 'line-through' : 'none'}}>
+      <Text onPress={() => toggleTodo(element)} style={{ textDecorationLine: element.completed ? 'line-through' : 'none'}}>
           {element.text}
         </Text>
     </View>
@@ -35,7 +36,7 @@ const TodoScreen = () => {
         style={styles.inputstyle}
         onChangeText={(value) => setText(value)}
         value={text}
-        placeholder='Enter a todo task!'
+        placeholder='Enter a new task!'
       />
       <br/>
       <Button onPress={addTodo} title="Add Todo" />
